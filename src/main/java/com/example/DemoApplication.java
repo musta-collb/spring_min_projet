@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@SpringBootApplication(scanBasePackages = {"com.example.Controllers", "com.example.Dao", "com.example.Entities", "com.example.Services"})
+@SpringBootApplication(scanBasePackages = {"com.example.Controllers", "com.example.Dao", "com.example.Entities", "com.example.Services", "com.example.demo"})
 public class DemoApplication {
 
 	public static void main(String[] args) {

@@ -1,13 +1,18 @@
 package com.example.Entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="cooperative")
 public class Cooperative {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "cooperative")
+    private List<Produit> produits;
+
     private String nomCooperative;
 
     private String region;
@@ -35,11 +40,11 @@ public class Cooperative {
     public Cooperative() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -97,5 +102,13 @@ public class Cooperative {
 
     public void setSectionActivite(String sectionActivite) {
         this.sectionActivite = sectionActivite;
+    }
+
+    public List<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(List<Produit> produits) {
+        this.produits = produits;
     }
 }

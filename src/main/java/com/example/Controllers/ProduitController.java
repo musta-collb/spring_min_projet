@@ -1,6 +1,6 @@
 package com.example.Controllers;
 
-import com.example.demo.Produit;
+import com.example.Entities.Produit;
 import com.example.Services.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
