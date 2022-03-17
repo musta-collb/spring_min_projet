@@ -1,6 +1,5 @@
-package com.example.Dao;
+package com.example.Repositories;
 
-import com.example.Entities.Cooperative;
 import com.example.Entities.Matiere;
 import org.springframework.data.jpa.repository.JpaRepository;
 

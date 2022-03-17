@@ -1,10 +1,14 @@
 package com.example.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name="cooperative")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","produits"})
+
 public class Cooperative {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -110,5 +114,19 @@ public class Cooperative {
 
     public void setProduits(List<Produit> produits) {
         this.produits = produits;
+    }
+
+    @Override
+    public String toString() {
+        return "Cooperative{" +
+                "id=" + id +
+                ", nomCooperative='" + nomCooperative + '\'' +
+                ", region='" + region + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", tel='" + tel + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", sectionActivite='" + sectionActivite + '\'' +
+                '}';
     }
 }

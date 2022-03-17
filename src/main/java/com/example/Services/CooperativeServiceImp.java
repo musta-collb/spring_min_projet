@@ -1,9 +1,11 @@
 package com.example.Services;
 
-import com.example.Dao.CooperativeDao;
+import com.example.Repositories.CooperativeDao;
 import com.example.Entities.Cooperative;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CooperativeServiceImp implements CooperativeService{
@@ -20,5 +22,17 @@ public class CooperativeServiceImp implements CooperativeService{
     //supprimer par id
     public void supprimerCooperative(long id){
         cooperativeDao.deleteById(id);
-    };
+    }
+
+    @Override
+    public List<Cooperative> recupererCooperatives() {
+        return cooperativeDao.findAll();
+    }
+
+//    @Override
+//    public Cooperative recupererParEmailPassword(String email, String password) {
+//        return cooperativeDao.findByEmailPassword(email, password);
+//    }
+
+
 }

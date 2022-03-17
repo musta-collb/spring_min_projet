@@ -1,7 +1,7 @@
 package com.example.Services;
 
-import com.example.Dao.MatiereDao;
-import com.example.Dao.OrigineDao;
+import com.example.Repositories.MatiereDao;
+import com.example.Repositories.OrigineDao;
 import com.example.Entities.Matiere;
 import com.example.Entities.Origine;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.example.Services;
 
-import com.example.Dao.CategorieDao;
-import com.example.Dao.ProduitDao;
+import com.example.Repositories.CategorieDao;
+import com.example.Repositories.ProduitDao;
 import com.example.Entities.Categorie;
 import com.example.Entities.Produit;
 import org.springframework.beans.factory.annotation.Autowired;

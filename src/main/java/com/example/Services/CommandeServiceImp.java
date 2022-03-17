@@ -1,7 +1,7 @@
 package com.example.Services;
 
-import com.example.Dao.CommandeDao;
-import com.example.Dao.QuantiteDao;
+import com.example.Repositories.CommandeDao;
+import com.example.Repositories.QuantiteDao;
 import com.example.Entities.Commande;
 import com.example.Entities.Quantite;
 import org.springframework.beans.factory.annotation.Autowired;

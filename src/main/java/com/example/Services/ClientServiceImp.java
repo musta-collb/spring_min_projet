@@ -1,6 +1,6 @@
 package com.example.Services;
 
-import com.example.Dao.ClientDao;
+import com.example.Repositories.ClientDao;
 import com.example.Entities.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
