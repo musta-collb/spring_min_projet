@@ -1,6 +1,6 @@
 package com.example.Services;
 
-import com.example.Repositories.CooperativeDao;
+import com.example.Repositories.CooperativeRepository;
 import com.example.Entities.Cooperative;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class CooperativeServiceImp implements CooperativeService{
     @Autowired
-    private CooperativeDao cooperativeDao;
+    private CooperativeRepository cooperativeDao;
     //ajouter
     public void ajouterCooperative(Cooperative cooperative){
         cooperativeDao.save(cooperative);

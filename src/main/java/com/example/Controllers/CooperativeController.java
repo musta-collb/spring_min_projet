@@ -2,6 +2,8 @@ package com.example.Controllers;
 
 import com.example.Entities.Cooperative;
 import com.example.Services.CooperativeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/v1")
 public class CooperativeController {
+
+
     @Autowired
     private CooperativeService cooperativeService;
 
     //Login
-    @PostMapping("/login")
+    @GetMapping("/login")
     public Cooperative cooperative(){
         return null;
     };
