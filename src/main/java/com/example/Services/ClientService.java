@@ -12,9 +12,11 @@ public interface ClientService {
 
     public Client recupererClientParId(long id);
 
-    public void supprimerClient(long id);
+    public void supprimerClient(long id) throws Exception;
 
     public List<Client> recuperClients();
+
+    public Client trouverClientParEmail(String email);
 
     //public List<Produit> recupererProduits(long id);
 

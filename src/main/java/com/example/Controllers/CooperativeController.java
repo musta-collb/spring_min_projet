@@ -2,12 +2,9 @@ package com.example.Controllers;
 
 import com.example.Entities.Cooperative;
 import com.example.Services.CooperativeService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -17,6 +14,9 @@ public class CooperativeController {
 
     @Autowired
     private CooperativeService cooperativeService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder ;
 
     //Login
     @GetMapping("/login")
@@ -38,6 +38,7 @@ public class CooperativeController {
     @PostMapping("/cooperatives")
     public String creatCooperative(@RequestBody Cooperative cooperative){
         System.out.println(cooperative.toString());
+        cooperative.setPassword(bCryptPasswordEncoder.encode(cooperative.getPassword()));
         cooperativeService.ajouterCooperative(cooperative);
         return "cooperative was created";
     }

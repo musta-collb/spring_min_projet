@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ClientDao extends JpaRepository<Client, Long> {
+    Client findByEmailEquals(String email);
    // @Query(value="SELECT p FROM Produit as p WHERE Client.Id=:id ")
     //public List<Produit> recupererProduitsParClients(@Param("id") long id);
+
 }

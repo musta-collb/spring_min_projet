@@ -1,0 +1,2 @@
+00:55:00 INFO  - une cooperative a été crée [nom:mustaphaCooperative email:musta@gmail.com]
+00:58:04 WARN  - une cooprative a été supprimer:Cooperative{id=3, nomCooperative='nomCooperative01', region='null', adresse='test adresse', tel='null', email='test@gmial.com', password='134532', sectionActivite='null'}

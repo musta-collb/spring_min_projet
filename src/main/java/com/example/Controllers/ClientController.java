@@ -4,7 +4,12 @@ import com.example.Entities.Client;
 import com.example.Entities.Produit;
 import com.example.Services.ClientService;
 import com.example.Services.ProduitService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +17,12 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/v1")
 public class ClientController {
-
+    private Logger logger = LoggerFactory.getLogger(ClientController.class);
     @Autowired
     private ClientService clientService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder ;
     //@Autowired
     //private ProduitService produitService;
 
@@ -22,23 +30,35 @@ public class ClientController {
     @GetMapping(path = "/clients")
     public List<Client> getClients(){
         return clientService.recuperClients();
+
     }
 
     @GetMapping(path="/clients/{id}")
-    public Client getClient(@PathVariable long id){
-        return clientService.recupererClientParId(id);
+    public ResponseEntity<Client> getClient(@PathVariable long id){
+            return ResponseEntity.ok().body(clientService.recupererClientParId(id));
     }
+
     @PostMapping(path = "/clients")
-    public void ajouterClient(@RequestBody Client client){
+    public ResponseEntity<String> ajouterClient(@RequestBody Client client){
+        System.out.println(client.toString());
+        client.setPassword(bCryptPasswordEncoder.encode(client.getPassword()));
         clientService.ajouterClient(client);
+        return ResponseEntity.ok().body("un client a était crée");
     }
     @DeleteMapping(path = "/clients/{id}")
     public void supprimerClient(@PathVariable long id){
-        clientService.supprimerClient(id);
+        try {
+            clientService.supprimerClient(id);
+        }catch (Exception e){
+            //
+        }
+
     }
     @PutMapping(path = "/clients/{id}")
-    public void modifierClient(@RequestBody Client client){
+    public ResponseEntity<String> modifierClient(@RequestBody Client client,@PathVariable int id){
+        client.setId(id);
         clientService.ajouterClient(client);
+        return ResponseEntity.ok().body("le client a été modifié avec success!");
     }
 
     //Listons les produits d'un client

@@ -1,10 +1,13 @@
 package com.example.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name="categorie")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","produits"})
 public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

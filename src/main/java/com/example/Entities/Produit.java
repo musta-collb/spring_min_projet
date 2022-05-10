@@ -87,7 +87,7 @@ public class Produit {
         this.quantites = quantites;
     }
 
-    protected Produit() {
+    public Produit() {
     }
 
     public Cooperative getCooperative() {

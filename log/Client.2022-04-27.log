@@ -1,0 +1,3 @@
+00:38:33 INFO  - un client a été créé!: mustapha id-yahia mustapha1234
+00:45:01 WARN  - un client a été supprimé !: Client{Id=1, nom='mustapha', prenom='id-yahia', email='mustapha@gmail.com', password='mustapha1234', adresse='mustapha , adresse', tel='065604534303'}
+00:46:07 WARN  - un client a été supprimé !: Client{Id=2, nom='mustapha', prenom='id-yahia', email='mustapha@gmail.com', password='mustapha1234', adresse='adresse', tel='065604534303'}

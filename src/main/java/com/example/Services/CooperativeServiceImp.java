@@ -2,6 +2,8 @@ package com.example.Services;
 
 import com.example.Repositories.CooperativeRepository;
 import com.example.Entities.Cooperative;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import java.util.List;
 public class CooperativeServiceImp implements CooperativeService{
     @Autowired
     private CooperativeRepository cooperativeDao;
+    private Logger logger = LoggerFactory.getLogger(CooperativeServiceImp.class);
     //ajouter
     public void ajouterCooperative(Cooperative cooperative){
         cooperativeDao.save(cooperative);
@@ -25,9 +28,15 @@ public class CooperativeServiceImp implements CooperativeService{
     }
 
     @Override
-    public List<Cooperative> recupererCooperatives() {
+    public List<Cooperative> recupererCooperatives(){
         return cooperativeDao.findAll();
     }
+
+    @Override
+    public Cooperative tourverCooperativeParEmail(String email){
+        return cooperativeDao.findByEmailEquals(email);
+    }
+
 
 //    @Override
 //    public Cooperative recupererParEmailPassword(String email, String password) {

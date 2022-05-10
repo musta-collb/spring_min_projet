@@ -1,6 +1,5 @@
 package com.example.Repositories;
 
-import com.example.Entities.Cooperative;
 import com.example.Entities.Produit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 public class ProduitRepositoryTest {
@@ -22,7 +20,6 @@ public class ProduitRepositoryTest {
         //Given
         Produit produit = new Produit("testingProduit", 13.45F, "detailTesting", "uniteTesting");
         //when
-        produitRepository.save(produit);
         produitRepository.save(produit);
         List<Produit> produits = produitRepository.findAll();
         Produit produit1 = produits.get(0);
